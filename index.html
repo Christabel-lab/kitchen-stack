@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchenStack - Recipe & Prep Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🍳 KitchenStack</h1>
+        <p>Real-world inventory and recipe prep manager powered by LIFO Stacks</p>
+    </header>
+
+    <div class="grid">
+        <!-- Controls Column -->
+        <div class="card">
+            <h2>Add Ingredient / Task</h2>
+            <div class="input-group">
+                <input type="text" id="ingredientInput" placeholder="e.g., Chop Onions">
+                <button id="pushBtn">Push to Stack</button>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">Quick Recipe Presets:</p>
+            <div class="recipe-presets">
+                <div class="preset-pill" data-preset="Boil Water,Add Salt,Drop Pasta,Simmer Sauce">🍝 Pasta Prep</div>
+                <div class="preset-pill" data-preset="Toast Bread,Mash Avocado,Poach Egg,Drizzle Hot Sauce">🥑 Avocado Toast</div>
+            </div>
+
+            <h2>Stack Operations</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+                In a stack workflow, items added last must be resolved or used first. Use <b>Pop</b> to clear completed steps from top to bottom.
+            </p>
+            <div class="actions-bar">
+                <button class="secondary" id="popBtn" style="flex:1;">Pop Top Item</button>
+                <button class="secondary" id="clearBtn">Clear All</button>
+            </div>
+        </div>
+
+        <!-- Stack Display Column -->
+        <div class="card">
+            <h2>Active Prep Stack (LIFO)</h2>
+            <div class="stack-info">
+                <span>Top of Stack (Next to complete) ↑</span>
+                <span id="stackCount">0 items</span>
+            </div>
+            <div id="stackVisual" class="stack-container"></div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
